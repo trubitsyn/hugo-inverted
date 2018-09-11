@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ range $key, $value := .Data.Terms.ByCount }}
 <li>
-    <a href="{{ "/tags/" | relLangURL }}{{ $value.Name | urlize }}">{{ $value.Name }}</a> <span class="text-muted font-weight-bold">({{ $value.Count }})</span>
+    <a href="{{ "tags" | relLangURL }}{{ $value.Name | urlize }}">{{ $value.Name }}</a> <span class="text-muted font-weight-bold">({{ $value.Count }})</span>
 </li>
 {{ end }}
 {{ end }}

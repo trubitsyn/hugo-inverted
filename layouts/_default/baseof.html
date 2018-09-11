@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body>
+    <div class="d-flex flex-column m-auto h-100">
+        <div class="flex-grow-1 flex-shrink-0">
+            {{ partial "header.html" . }}
+            <div class="container mt-3">
+                {{ block "main" . }}{{ end }}
+            </div>
+        </div>
+        <footer class="flex-grow-0 flex-shrink-0 mt-5">
+            {{ partial "footer.html" . }}
+        </footer>
+    </div>
+    {{ partial "scripts.html" . }}
+</body>
+</html>

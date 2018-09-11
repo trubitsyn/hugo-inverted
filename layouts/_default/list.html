@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+{{ $count := (len .Pages) }}
+{{ $firstPostYear := 2010 }}
+{{ $currentYear := (int (now.Format "2006")) }}
+
+<p class="text-muted">{{ $count }} {{ if (eq $count 1) }} {{ singularize .Section }} {{ else }} {{ .Section }} {{ end }} over {{ add (sub $currentYear $firstPostYear) 1 }} years</p>
+
+{{ range .Pages.GroupByDate "2006" }}
+<h4>{{ .Key }}</h4>
+<ul class="list-unstyled">
+    {{ range .Pages }}
+    <li class="mt-1"> 
+        <span class="text-muted">{{ .Date.Format "Jan 2" }}</span>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}
+{{ end }}

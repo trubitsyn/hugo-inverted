@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+}
+
+a {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+ul {
+    font-weight: bold;
+}

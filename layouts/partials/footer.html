@@ -3,7 +3,7 @@
         <div class="text-center">
             <small class="text-muted">
 		{{ block "footer-content" . }}
-	                {{ .Site.Copyright }}
+	                {{ .Site.Copyright | safeHTML }}
 		{{ end }}
             </small>
         </div>

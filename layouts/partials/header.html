@@ -1,5 +1,6 @@
-<div id="header">
-	<nav class="navbar text-center navbar-expand-lg navbar-{{if .Site.Params.dark}}dark{{else}}light{{end}} bg-{{if .Site.Params.dark}}dark{{else}}light{{end}} shadow-sm">
+<header>
+	{{ $bgcolor := cond .Site.Params.dark "dark" "light" }}
+	<nav class="navbar text-center navbar-expand-lg navbar-{{ $bgcolor }} bg-{{ $bgcolor }} shadow-sm">
 		<a class="navbar-brand font-weight-normal" href="/">{{ .Site.Title }}</a>
 		<span class="navbar-toggler border-0" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<i class="fas fa-bars {{ if .Site.Params.dark }}fa-inverse{{end}}"></i>
@@ -24,4 +25,4 @@
 			</ul>
 		</div>
 	</nav>
-</div>
+</header>

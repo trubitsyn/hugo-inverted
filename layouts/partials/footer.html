@@ -2,9 +2,8 @@
     <div class="navbar-nav mx-auto">
         <div class="text-center">
             <small class="text-muted">
-		{{ block "footer-content" . }}
-	                {{ .Site.Copyright | safeHTML }}
-		{{ end }}
+		<p>{{ .Site.Copyright | safeHTML }}</p>
+		<p><a href="https://github.com/trubitsyn/inverted">Inverted</a> theme by <a href="https://www.nikolatrubitsyn.com">@nikolatrubitsyn</a></p>
             </small>
         </div>
     </div>

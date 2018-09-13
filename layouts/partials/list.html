@@ -1,0 +1,12 @@
+<div class="row mt-4">
+    <div class="col">
+        <h5>Latest {{ pluralize .section }}</h5>
+        <ul class="list-unstyled">
+		{{ range first .max (where .ctx.Site.RegularPages "Section" .section).ByDate.Reverse }}
+		<li class="mt-1">
+			<a href="{{ .Permalink }}">{{ .Title }}</a>
+		</li>
+		{{ end }}
+        </ul>
+    </div>
+</div>

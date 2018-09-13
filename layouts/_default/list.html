@@ -1,10 +1,12 @@
 {{ define "main" }}
 
-{{ $count := (len .Pages) }}
+{{ $count := len .Pages }}
 {{ $firstPostYear := 2010 }}
-{{ $currentYear := (int (now.Format "2006")) }}
+{{ $year := int (now.Format "2006") }}
+{{ $item := cond (eq $count 1) (singularize .Section) .Section }}
+{{ $years := add (sub $year $firstPostYear) 1 }}
 
-<p class="text-muted">{{ $count }} {{ if (eq $count 1) }} {{ singularize .Section }} {{ else }} {{ .Section }} {{ end }} over {{ add (sub $currentYear $firstPostYear) 1 }} years</p>
+<p class="text-muted">{{ $count }} {{ $item }} over {{ $years }} years</p>
 
 {{ range .Pages.GroupByDate "2006" }}
 <h4>{{ .Key }}</h4>

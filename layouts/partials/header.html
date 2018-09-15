@@ -1,28 +1,26 @@
-<header>
-	{{ $bgcolor := cond .Site.Params.dark "dark" "light" }}
-	<nav class="navbar text-center navbar-expand-lg navbar-{{ $bgcolor }} bg-{{ $bgcolor }} shadow-sm">
-		<a class="navbar-brand font-weight-normal" href="/">{{ .Site.Title }}</a>
-		<span class="navbar-toggler border-0" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<i class="fas fa-bars {{ if .Site.Params.dark }}fa-inverse{{end}}"></i>
-		</span>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="nav navbar-nav mr-auto">
-				{{ $currentPage := . }}
-				{{ range .Site.Menus.main }}
-				{{ if not .HasChildren }}
-				<li class="nav-item {{if or ($currentPage.IsMenuCurrent "main" .) (eq .Identifier $currentPage.Type) }}active{{end}}">
-					<a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
-				</li>
+{{ $bgcolor := cond .Site.Params.dark "dark" "light" }}
+<nav class="navbar text-center navbar-expand-lg navbar-{{ $bgcolor }} bg-{{ $bgcolor }} shadow-sm">
+	<a class="navbar-brand font-weight-normal" href="/">{{ .Site.Title }}</a>
+	<div class="navbar-toggler border-0" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="fas fa-bars {{ if .Site.Params.dark }}fa-inverse{{end}}"></i>
+	</div>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="nav navbar-nav mr-auto">
+			{{ $currentPage := . }}
+			{{ range .Site.Menus.main }}
+			{{ if not .HasChildren }}
+			<li class="nav-item {{if or ($currentPage.IsMenuCurrent "main" .) (eq .Identifier $currentPage.Type) }}active{{end}}">
+				<a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
+			</li>
+			{{ end }}
+			{{ end }}
+		</ul>
+		<ul class="nav navbar-nav ml-auto">
+			<li class="nav-item">
+				{{ range .Site.Params.social }}
+				<a href="{{ .URL }}" class="font-weight-normal"><i class="fa-lg fa-fw {{if .Site.Params.dark}}fa-inverse{{end}} nav-link {{ .style }}"></i></a>
 				{{ end }}
-				{{ end }}
-			</ul>
-			<ul class="nav navbar-nav ml-auto">
-				<li class="nav-item">
-					{{ range .Site.Params.social }}
-					<a href="{{ .URL }}" class="font-weight-normal"><i class="fa-lg fa-fw {{if .Site.Params.dark}}fa-inverse{{end}} nav-link {{ .style }}"></i></a>
-					{{ end }}
-				</li>
-			</ul>
-		</div>
-	</nav>
-</header>
+			</li>
+		</ul>
+	</div>
+</nav>

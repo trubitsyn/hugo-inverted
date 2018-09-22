@@ -6,15 +6,21 @@
 {{ $item := cond (eq $count 1) (singularize .Section) .Section }}
 {{ $years := add (sub $year $firstPostYear) 1 }}
 
-<p class="text-muted">{{ $count }} {{ $item }} over {{ $years }} years</p>
+<p class="text-muted">
+    {{ $count }} {{ $item }} over {{ $years }} years
+</p>
 
 {{ range .Pages.GroupByDate "2006" }}
 <h4>{{ .Key }}</h4>
 <ul class="list-unstyled">
     {{ range .Pages }}
     <li class="mt-1"> 
-        <span class="text-muted">{{ .Date.Format "Jan 2" }}</span>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <span class="text-muted">
+            {{ .Date.Format "Jan 2" }}
+        </span>
+        <a href="{{ .Permalink }}">
+            {{ .Title }}
+        </a>
     </li>
     {{ end }}
 </ul>

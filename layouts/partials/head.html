@@ -3,7 +3,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <title>
-    {{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}
+    {{ if .IsHome }}
+        {{ .Site.Title }}
+    {{ else }}
+        {{ if eq .Kind "taxonomy" }}{{ .Data.Term }}{{ else }}{{ .Title }}{{ end }} | {{ .Site.Title }}
+    {{ end}}
 </title>
 
 <!-- Favicon -->

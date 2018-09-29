@@ -1,0 +1,5 @@
+{{ range .Site.Params.social }}
+<a href="{{ .URL }}" class="font-weight-normal">
+    <i class="fa-lg fa-fw {{ if .Site.Params.dark }}fa-inverse{{ end }} nav-link {{ .style }}"></i>
+</a>
+{{ end }}

@@ -14,9 +14,9 @@
             </div>
         </div>
         <footer class="flex-grow-0 flex-shrink-0 mt-5">
-            {{ partial "footer.html" . }}
+            {{ partialCached "footer.html" . }}
         </footer>
     </div>
-    {{ partial "scripts.html" . }}
+    {{ partialCached "scripts.html" . }}
 </body>
 </html>

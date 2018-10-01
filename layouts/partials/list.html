@@ -1,15 +1,21 @@
 <div class="row mt-4">
     <div class="col">
-        <h5>Latest {{ pluralize .section }}</h5>
+        {{ $items := first .max (where .ctx.Site.RegularPages "Section" .section).ByDate.Reverse }}
+        {{ $itemsLength := len $items }}
+        {{ if gt $itemsLength 1 }}
+        <h5>
+            {{ i18n "last" $itemsLength | humanize }} {{ $itemsLength }} {{ i18n (singularize .section) $itemsLength }}
+        </h5>
         
         <ul class="list-unstyled">
-		{{ range first .max (where .ctx.Site.RegularPages "Section" .section).ByDate.Reverse }}
-		<li class="mt-1">
-			<a href="{{ .Permalink }}">
-                {{ .Title }}
-            </a>
-		</li>
-		{{ end }}
+            {{ range $items }}
+            <li class="mt-1">
+                <a href="{{ .Permalink }}">
+                    {{ .Title }}
+                </a>
+            </li>
+            {{ end }}
         </ul>
+        {{ end }}
     </div>
 </div>

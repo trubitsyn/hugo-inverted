@@ -1,0 +1,5 @@
+{{ .Content }}
+
+{{ if and (isset .Params "source_url") (isset .Params "source_name") }}
+{{ i18n "find_more_on" }} <a href="{{ .Params.source_url }}">{{ .Params.source_name }}</a>.
+{{ end }}

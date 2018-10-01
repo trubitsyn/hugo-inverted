@@ -11,7 +11,15 @@
     {{ if .IsHome }}
         {{ .Site.Title }}
     {{ else }}
-        {{ if eq .Kind "taxonomy" }}{{ .Data.Term }}{{ else }}{{ .Title }}{{ end }} | {{ .Site.Title }}
+        {{ if eq .Kind "taxonomy" }}
+        {{ .Data.Term }}
+        {{ else }}
+        {{ if eq .Kind "taxonomyTerm" }}
+        {{ i18n (lower .Title) | humanize }}
+        {{ else }}
+        {{ .Title }}
+        {{ end }}
+        {{ end }} | {{ .Site.Title }}
     {{ end}}
 </title>
 

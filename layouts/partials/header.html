@@ -1,10 +1,10 @@
 {{ $bgcolor := cond .Site.Params.dark "dark" "light" }}
 <nav class="navbar text-center navbar-expand-lg navbar-{{ $bgcolor }} bg-{{ $bgcolor }} shadow-sm">
-	<a class="navbar-brand font-weight-normal" href="/">
+	<a class="navbar-brand font-weight-normal" href="{{ .Site.BaseURL | relLangURL }}">
 		{{ .Site.Title }}
 	</a>
 
-	<div class="navbar-toggler border-0" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<div class="navbar-toggler ml-auto border-0" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<i class="fas fa-bars {{ if .Site.Params.dark }}fa-inverse{{ end }}"></i>
 	</div>
 
@@ -14,7 +14,7 @@
 			{{ range .Site.Menus.main }}
 			{{ if not .HasChildren }}
 			<li class="nav-item {{ if or ($currentPage.IsMenuCurrent "main" .) (eq .Identifier $currentPage.Type) }}active{{ end }}">
-				<a class="nav-link" href="{{ .URL }}">
+				<a class="nav-link" href="{{ .URL | absLangURL }}">
 					{{ .Name }}
 				</a>
 			</li>
@@ -22,10 +22,9 @@
 			{{ end }}
 		</ul>
 
-		<ul class="nav navbar-nav ml-auto">
-			<li class="nav-item">
-				{{ partial "social.html" . }}
-			</li>
+		<ul class="nav navbar-nav navbar-right">
+			{{ partial "language_switcher.html" . }}
+			{{ partial "social.html" . }}
 		</ul>
 	</div>
 </nav>

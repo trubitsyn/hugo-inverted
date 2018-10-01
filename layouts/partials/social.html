@@ -1,5 +1,19 @@
+<!-- For normal navbar -->
 {{ range .Site.Params.social }}
-<a href="{{ .URL }}" class="font-weight-normal">
-    <i class="fa-lg fa-fw {{ if .Site.Params.dark }}fa-inverse{{ end }} nav-link {{ .style }}"></i>
-</a>
+<!-- Hide on screens smaller than lg -->
+<li class="nav-item d-none d-lg-block">
+    <a href="{{ .URL }}" class="font-weight-normal nav-link">
+        <i class="fa-lg {{ if .Site.Params.dark }}fa-inverse{{ end }} {{ .style }}"></i>
+    </a>
+</li>
 {{ end }}
+
+<!-- For collapsed navbar -->
+<!-- Hide on screens larger than md -->
+<div class="d-md-none nav-item">
+    {{ range .Site.Params.social }}
+    <a href="{{ .URL }}" class="font-weight-normal">
+        <i class="nav-link fa-lg fa-fw {{ if .Site.Params.dark }}fa-inverse{{ end }} {{ .style }}"></i>
+    </a>
+    {{ end }}
+</div>

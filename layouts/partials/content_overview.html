@@ -1,0 +1,10 @@
+{{ $count := len .Pages }}
+{{ $what := .Section | singularize }}
+
+{{ $firstPostYear := 2010 }}
+{{ $year := int (now.Format "2006") }}
+{{ $years := add (sub $year $firstPostYear) 1 }}
+
+<p class="text-muted">
+    {{ $count }} {{ i18n $what $count }} {{ i18n "over" }} {{ $years }} {{ i18n "years" $years }}
+</p>

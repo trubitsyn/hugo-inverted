@@ -1,6 +1,6 @@
 {{ $bgcolor := cond .Site.Params.dark "dark" "light" }}
 <nav class="navbar text-center navbar-expand-lg navbar-{{ $bgcolor }} bg-{{ $bgcolor }} shadow-sm">
-	<a class="navbar-brand font-weight-normal" href="{{ .Site.BaseURL | relLangURL }}">
+	<a class="navbar-brand font-weight-normal" href="{{ .Site.BaseURL | relLangURL }}/">
 		{{ .Site.Title }}
 	</a>
 

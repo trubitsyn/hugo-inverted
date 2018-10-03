@@ -1,4 +1,5 @@
 {{ define "main" }}
+<!-- List tags by count, e.g. programming (5)-->
 {{ range $key, $value := .Data.Terms.ByCount }}
 <li>
     <a href="{{ "tags" | absLangURL }}/{{ $value.Name | urlize }}/">

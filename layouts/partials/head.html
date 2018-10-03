@@ -9,14 +9,18 @@
 
 <title>
     {{ if .IsHome }}
+        <!-- Show site title only if on home page -->
         {{ .Site.Title }}
     {{ else }}
         {{ if eq .Kind "taxonomy" }}
+        <!-- Show taxonomy page title (e.g. Tags) -->
         {{ .Data.Term }}
         {{ else }}
         {{ if eq .Kind "taxonomyTerm" }}
+        <!-- Do not capitalize taxonomy term titles (e.g. tag titles) -->
         {{ i18n (lower .Title) | humanize }}
         {{ else }}
+        <!-- Show page title from the Front Matter -->
         {{ .Title }}
         {{ end }}
         {{ end }} | {{ .Site.Title }}

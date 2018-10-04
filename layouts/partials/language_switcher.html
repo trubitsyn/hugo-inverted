@@ -1,12 +1,10 @@
 {{ if .IsTranslated }}
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <!-- Current language full name as specified in config.yml -->
         {{ .Language.LanguageName }}
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         {{ range .Translations }}
-        <!-- List all languages except the current one -->
         <a class="dropdown-item" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
         {{ end }}
     </div>

@@ -2,7 +2,6 @@
     {{ .Title }}
 </h1>
 <p class="text-muted">
-    <!-- Thu September 27, 2018 -->
     {{ (i18n .Date.Weekday | default .Date.Weekday) | truncate 3 "" }} {{ i18n .Date.Month | default .Date.Month }} {{ .Date.Day }}, {{ .Date.Year }}
     <span class="align-baseline">
         {{ with .Params.tags }}

@@ -8,7 +8,6 @@
     {{ range .Pages }}
     <li class="mt-1"> 
         <span class="text-muted">
-            <!-- Thu September 27, 2018 -->
             {{ (i18n .Date.Month | default .Date.Month) | truncate 3 "" }} {{ .Date.Day }}
         </span>
         <a href="{{ .Permalink }}">

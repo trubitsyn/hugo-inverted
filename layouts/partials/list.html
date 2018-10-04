@@ -1,12 +1,9 @@
 <div class="row mt-4">
     <div class="col">
-        <!-- Last N regular pages from section sorted by date in reverse order -->
         {{ $items := first .max (where .ctx.Site.RegularPages "Section" .section).ByDate.Reverse }}
         {{ $itemsLength := len $items }}
-        <!-- Do not show less than 2 items -->
         {{ if gt $itemsLength 1 }}
         <h5>
-            <!-- Last X posts -->
             {{ i18n "last" $itemsLength | humanize }} {{ $itemsLength }} {{ i18n (singularize .section) $itemsLength }}
         </h5>
         

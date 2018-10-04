@@ -1,24 +1,20 @@
 {{ $bgcolor := cond .Site.Params.dark "dark" "light" }}
 <nav class="navbar text-center navbar-expand-lg navbar-{{ $bgcolor }} bg-{{ $bgcolor }} shadow-sm">
 	{{ if .Site.Params.showBrand | default true }}
-	<!-- Brand -->
 	<a class="navbar-brand font-weight-normal" href="{{ .Site.BaseURL | relLangURL }}/">
 		{{ .Site.Title }}
 	</a>
 	{{ end }}
 
-	<!-- Toggler to show on mobile devices -->
 	<div class="navbar-toggler ml-auto border-0" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<i class="fas fa-bars {{ if .Site.Params.dark }}fa-inverse{{ end }}"></i>
 	</div>
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="nav navbar-nav mr-auto">
-			<!-- Site menu -->
 			{{ $currentPage := . }}
 			{{ range .Site.Menus.main }}
 			{{ if not .HasChildren }}
-			<!-- Mark item active if a page is explicitly marked as a menu page OR is a child of a menu page -->
 			<li class="nav-item {{ if or ($currentPage.IsMenuCurrent "main" .) (eq .Identifier $currentPage.Type) }}active{{ end }}">
 				<a class="nav-link" href="{{ .URL | absLangURL }}">
 					{{ .Name }}
@@ -29,9 +25,7 @@
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
-			<!-- Language switcher -->
 			{{ partial "language_switcher.html" . }}
-			<!-- Social icons -->
 			{{ partial "social.html" . }}
 		</ul>
 	</div>

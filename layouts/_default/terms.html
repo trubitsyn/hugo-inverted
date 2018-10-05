@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ range $key, $value := .Data.Terms.ByCount }}
-<li>
+<li class="mt-1">
     <a href="{{ "tags" | absLangURL }}/{{ $value.Name | urlize }}/">
         {{ $value.Name }}
     </a>

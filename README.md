@@ -1,6 +1,8 @@
 # Inverted
 Inverted is a minimal dark theme for Hugo.
 
+**Currently under development.**
+
 ## Getting started
 1. Create a new site from default template:  
 `hugo new site yourAwesomeSite`

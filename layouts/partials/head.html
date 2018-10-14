@@ -11,16 +11,12 @@
     {{ if .IsHome }}
         {{ .Site.Title }}
     {{ else }}
-        {{ if eq .Kind "taxonomy" }}
-        {{ .Data.Term }}
-        {{ else }}
         {{ if eq .Kind "taxonomyTerm" }}
         {{ i18n (lower .Title) | humanize }}
         {{ else }}
-        {{ .Title }}
+        {{ .Title }} | {{ .Site.Title }}
         {{ end }}
-        {{ end }} | {{ .Site.Title }}
-    {{ end}}
+    {{ end }}
 </title>
 
 <!-- Favicon -->

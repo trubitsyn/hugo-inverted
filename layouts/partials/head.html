@@ -19,35 +19,7 @@
     {{ end }}
 </title>
 
-<!-- Favicon -->
-<link
-    rel="shortcut icon"
-    type="image/png"
-    href="/favicon.png">
-
-<!-- Bootstrap -->
-<link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-    crossorigin="anonymous">
-
-<!-- Font Awesome -->
-<link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-    crossorigin="anonymous">
-
-<!-- highlight.js -->
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/idea.min.css" />
-
-<!-- Internal -->
-<link
-    rel="stylesheet"
-    href="/css/style.css">
+{{ partial "styles.html" . }}
 
 <!-- Google Analytics -->
 {{ template "_internal/google_analytics_async.html" . }}

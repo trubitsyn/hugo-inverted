@@ -8,6 +8,6 @@ a {
     text-decoration: none;
 }
 
-ul {
+ul.bold {
     font-weight: bold;
 }

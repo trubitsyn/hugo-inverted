@@ -7,7 +7,7 @@
             {{ i18n "last" $itemsLength | humanize }} {{ $itemsLength }} {{ i18n (singularize .section) $itemsLength }}
         </h5>
         
-        <ul class="list-unstyled">
+        <ul class="list-unstyled bold">
             {{ range $items }}
             <li class="mt-1">
                 <a href="{{ .Permalink }}">

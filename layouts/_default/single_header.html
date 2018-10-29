@@ -2,7 +2,7 @@
     {{ .Title }}
 </h1>
 <p class="text-muted">
-    {{ (i18n .Date.Weekday | default .Date.Weekday) | truncate 3 "" }} {{ i18n .Date.Month | default .Date.Month }} {{ .Date.Day }}, {{ .Date.Year }}
+    {{ i18n .Date.Month | default .Date.Month }} {{ .Date.Day }}, {{ .Date.Year }}
     <span class="align-baseline">
         {{ with .Params.tags }}
         {{ range . }}

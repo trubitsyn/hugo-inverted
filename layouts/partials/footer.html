@@ -1,13 +1,7 @@
-<div class="navbar navbar-expand-lg">
+<div class="navbar navbar-expand-lg {{ if .Site.Params.dark }}bg-dark{{ end }}">
     <div class="navbar-nav mx-auto">
-        <div class="text-center text-muted">
-            <p>
-                <small>
-                    {{ .Site.Copyright | safeHTML }}
-                    <br>
-                    <a href="https://github.com/trubitsyn/hugo-inverted">Inverted</a> theme by <a href="https://www.nikolatrubitsyn.com">@nikolatrubitsyn</a>
-                </small>
-            </p>
+        <div class="text-center {{ if .Site.Params.dark }}text-white{{ else }}text-muted{{ end }}">
+            {{ partial "footer_content" . }}
         </div>
     </div>
 </div>

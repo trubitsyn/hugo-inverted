@@ -1,6 +1,8 @@
 {{ $bgcolor := cond .Site.Params.dark "dark" "light" }}
 <nav class="navbar text-center navbar-expand-lg navbar-{{ $bgcolor }} bg-{{ $bgcolor }} shadow-sm">
-	{{ if .Site.Params.showBrand | default true }}
+	{{ if and (.Site.Params.hideBrandOnHome | default true) .IsHome }}
+	<span class="navbar-brand">&#x200b;</span>
+	{{ else }}	
 	<a class="navbar-brand font-weight-normal" href="{{ .Site.BaseURL | relLangURL }}/">
 		{{ .Site.Title }}
 	</a>

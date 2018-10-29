@@ -15,7 +15,8 @@
 			{{ $currentPage := . }}
 			{{ range .Site.Menus.main }}
 			{{ if not .HasChildren }}
-			<li class="nav-item {{ if or ($currentPage.IsMenuCurrent "main" .) (eq .Identifier $currentPage.Type) }}active{{ end }}">
+			{{ $active := or ($currentPage.IsMenuCurrent "main" .) (eq .Identifier $currentPage.Type) }}
+			<li class="nav-item {{ if $active }}active{{ end }}">
 				<a class="nav-link" href="{{ .URL | absLangURL }}">
 					{{ .Name }}
 				</a>

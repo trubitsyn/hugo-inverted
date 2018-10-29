@@ -1,6 +1,8 @@
-<div class="navbar navbar-expand-lg {{ if .Site.Params.dark }}bg-dark{{ end }}">
+{{ $bgColor := cond .Site.Params.dark "bg-dark" "bg-light" }}
+<div class="navbar navbar-expand-lg {{ $bgColor }}">
     <div class="navbar-nav mx-auto">
-        <div class="text-center {{ if .Site.Params.dark }}text-white{{ else }}text-muted{{ end }}">
+        {{ $textColor := cond .Site.Params.dark "text-light" "text-dark" }}
+        <div class="text-center {{ $textColor }}">
             {{ partial "footer_content" . }}
         </div>
     </div>

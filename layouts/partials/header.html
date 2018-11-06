@@ -1,7 +1,7 @@
 {{ $bgcolor := cond .Site.Params.dark "dark" "light" }}
 <nav class="navbar text-center navbar-expand-lg navbar-{{ $bgcolor }} bg-{{ $bgcolor }} shadow-sm">
 	<a class="navbar-brand font-weight-normal" href="{{ .Site.BaseURL | relLangURL }}/">
-		{{ if and (.Site.Params.hideBrandOnHome | default true) .IsHome }}
+		{{ if and (.Site.Params.hideBrandOnHome | default false) .IsHome }}
 		<i class="{{ .Site.Params.brandIcon }} {{ if .Site.Params.dark }}fa-inverse{{ end }}"></i>
 		{{ else }}
 		{{ .Site.Title }}

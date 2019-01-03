@@ -9,8 +9,8 @@
 {{ end }}
 
 <!-- For collapsed navbar -->
-<!-- Hide on screens larger than md -->
-<div class="d-md-none nav-item">
+<!-- Hide on screens larger or equal to lg -->
+<div class="d-lg-none nav-item">
     {{ range .Site.Params.social }}
     <a href="{{ .URL }}" class="font-weight-normal">
         <i class="nav-link fa-lg fa-fw {{ if .Site.Params.dark }}fa-inverse{{ end }} {{ .style }}"></i>

@@ -7,13 +7,13 @@
     <div class="d-flex flex-column m-auto h-100">
         <div class="flex-grow-1 flex-shrink-0">
             {{ partial "header.html" . }}
-            <div class="container mt-3">
+            <div class="container mt-3 mb-3">
                 <main>
                     {{ block "main" . }}{{ end }}
                 </main>
             </div>
         </div>
-        <footer class="flex-grow-0 flex-shrink-0 mt-5">
+        <footer class="flex-grow-0 flex-shrink-0">
             {{ partial "footer.html" . }}
         </footer>
     </div>

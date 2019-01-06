@@ -16,6 +16,10 @@
             </li>
             {{ end }}
         </ul>
+
+        {{ if .link }}
+        <a href="/{{ .section }}">view all</a>
+        {{ end }}
         {{ end }}
     </div>
 </div>

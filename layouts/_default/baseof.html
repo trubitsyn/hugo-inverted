@@ -9,7 +9,9 @@
             {{ partial "header.html" . }}
             <div class="container mt-3 mb-3">
                 <main>
-                    {{ block "main" . }}{{ end }}
+                    <div class="col-lg-8 mx-auto pl-1 pr-1">
+                        {{ block "main" . }}{{ end }}
+                    </div>
                 </main>
             </div>
         </div>

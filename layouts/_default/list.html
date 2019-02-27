@@ -1,20 +1,31 @@
 {{ define "main" }}
-
-{{ partial "content_overview.html" . }}
-
-{{ range .Pages.GroupByDate "2006" }}
-<h4>{{ .Key }}</h4>
-<ul class="list-unstyled bold">
-    {{ range .Pages }}
-    <li class="mt-1"> 
-        <span class="text-muted">
-            {{ (i18n .Date.Month | default .Date.Month) | truncate 3 "" }} {{ .Date.Day }}
-        </span>
-        <a href="{{ .Permalink }}">
-            {{ .Title }}
-        </a>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
+<div class="col">
+    {{ partial "content_overview.html" . }}
+    
+    <div class="col pl-0">
+        {{ range .Pages.GroupByDate "2006" }}
+        <h4>{{ .Key }}</h4>
+        <ul class="list-unstyled bold">
+            <div class="col">
+                {{ range .Pages }}
+                <li class="mt-1">
+                    <div class="row">
+                        <div style="min-width: 3.5em;">
+                            <span class="text-muted">
+                                {{ (i18n .Date.Month | default .Date.Month) | truncate 3 "" }} {{ .Date.Day }}
+                            </span>
+                        </div>
+                        <div class="col">
+                            <a href="{{ .Permalink }}">
+                                {{ .Title }}
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                {{ end }}
+            </div>
+        </ul>
+        {{ end }}
+    </div>
+</div>
 {{ end }}

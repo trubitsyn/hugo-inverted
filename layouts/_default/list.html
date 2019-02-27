@@ -1,5 +1,4 @@
 {{ define "main" }}
-<div class="col">
     {{ partial "content_overview.html" . }}
     
     <div class="col pl-0">
@@ -9,8 +8,8 @@
             <div class="col">
                 {{ range .Pages }}
                 <li class="mt-1">
-                    <div class="row pl-1">
-                        <div style="min-width: 3.5em;">
+                    <div class="row pl-3">
+                        <div style="min-width: 3.4em; text-align: right">
                             <span class="text-muted">
                                 {{ (i18n .Date.Month | default .Date.Month) | truncate 3 "" }} {{ .Date.Day }}
                             </span>
@@ -27,5 +26,4 @@
         </ul>
         {{ end }}
     </div>
-</div>
 {{ end }}

@@ -1,0 +1,14 @@
+<nav>
+    <div class="d-flex justify-content-center">
+        <div>
+            {{ if .Paginator.HasPrev }}
+            <a class="mr-4" href="{{ .Paginator.Prev.URL }}"><i class="fas fa-arrow-left"></i> here</a>
+            {{ end }}
+        </div>
+        <div>
+            {{ if .Paginator.HasNext }}
+            <a class="ml-4" href="{{ .Paginator.Next.URL }}">there <i class="fas fa-arrow-right"></i></a>
+            {{ end }}
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,9 @@
+<div class="card h-100">
+    {{ $thumbnail := .Resources.GetMatch "thumbnail" }}
+    <img src="{{ $thumbnail.Permalink }}" class="card-img-top img-fluid" alt="{{ .Title }}">
+    <div class="card-body">
+      <h5 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ .Description }}</h6>
+      <p class="card-text"><a href="https://github.com/trubitsyn/{{ .Title | lower }}">GitHub</a></p>
+    </div>
+</div>

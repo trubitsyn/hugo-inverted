@@ -1,0 +1,14 @@
+<li class="mt-1">
+    <div class="row">
+        <div style="min-width: 3.4em; text-align: right">
+            <span class="text-muted">
+                {{ (i18n .Date.Month | default .Date.Month) | truncate 3 "" }} {{ .Date.Day }}
+            </span>
+        </div>
+        <div class="col">
+            <a href="{{ .Permalink }}">
+                {{ .Title }}
+            </a>
+        </div>
+    </div>
+</li>

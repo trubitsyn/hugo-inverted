@@ -1,0 +1,7 @@
+{{ define "main" }}
+{{ .Render "single_header" }}
+<article class="mb-5">
+  {{ .Render "single_content" }}
+</article>
+{{ template "_internal/disqus.html" . }}
+{{ end }}

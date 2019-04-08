@@ -7,6 +7,9 @@
         </div>
         <div class="col">
             <a href="{{ .Permalink }}">
+                    {{ if .IsDraft }}
+                    <span>[draft]</span>
+                    {{ end }}
                 {{ .Title }}
             </a>
         </div>

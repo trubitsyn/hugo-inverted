@@ -1,10 +1,15 @@
 {{ define "main" }}
-{{ range $key, $value := .Data.Terms.ByCount }}
+{{ $type := .Type }}
+{{ range $key, $value := .Data.Terms.Alphabetical }}
+{{ $name := .Name }}
+{{ $count := .Count }}
+{{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
 <li class="mt-1">
-    <a href="{{ "tags" | absLangURL }}/{{ $value.Name | urlize }}/">
+    <a href="{{ .Permalink }}">
         {{ $value.Name }}
     </a>
     <span class="text-muted font-weight-bold"> ({{ $value.Count }})</span>
 </li>
+{{ end }}
 {{ end }}
 {{ end }}

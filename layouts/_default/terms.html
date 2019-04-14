@@ -6,9 +6,9 @@
 {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
 <li class="mt-1">
     <a href="{{ .Permalink }}">
-        {{ $value.Name }}
+        {{ .LinkTitle }}
     </a>
-    <span class="text-muted font-weight-bold"> ({{ $value.Count }})</span>
+    <span class="text-muted font-weight-bold"> ({{ $count }})</span>
 </li>
 {{ end }}
 {{ end }}

@@ -1,7 +1,7 @@
 <h1 class="font-weight-bold">
     {{ .Title }}
 </h1>
-<p class="text-muted">
+<p class="text-muted font-weight-bold">
     {{ i18n .Date.Month | default .Date.Month }} {{ .Date.Day }}, {{ .Date.Year }}
     <span class="align-baseline">
         {{ with .Params.categories }}

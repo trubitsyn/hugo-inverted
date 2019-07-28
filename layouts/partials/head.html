@@ -1,14 +1,15 @@
 {{ partial "meta.html" . }}
 
+{{ $separator := "•" }}
 <title>
     {{ if .IsHome }}
-        {{ .Site.Title }}
+    {{ .Site.Title }}
     {{ else }}
-        {{ if eq .Kind "taxonomyTerm" }}
-        {{ i18n (lower .Title) | humanize }}
-        {{ else }}
-        {{ .Title }} | {{ .Site.Title }}
-        {{ end }}
+    {{ if eq .Kind "taxonomyTerm" }}
+    {{ i18n (lower .Title) | humanize }} {{ $separator }} {{ .Site.Title }}
+    {{ else }}
+    {{ .Title }} {{ $separator }} {{ .Site.Title }}
+    {{ end }}
     {{ end }}
 </title>
 

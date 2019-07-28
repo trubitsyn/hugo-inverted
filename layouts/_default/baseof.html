@@ -2,6 +2,7 @@
 <html lang="{{ .Language.Lang }}">
 <head>
     {{ partial "head.html" . }}
+    {{ partialCached "scripts_before" . }}
 </head>
 <body>
     <div class="d-flex flex-column m-auto h-100">
@@ -19,6 +20,6 @@
             {{ partial "footer.html" . }}
         </footer>
     </div>
-    {{ partialCached "scripts.html" . }}
+    {{ partialCached "scripts_after.html" . }}
 </body>
 </html>

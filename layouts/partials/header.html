@@ -1,17 +1,13 @@
 {{ $bgcolor := cond .Site.Params.dark "dark" "light" }}
 <nav class="navbar text-center navbar-expand-lg navbar-{{ $bgcolor }} bg-{{ $bgcolor }} shadow-sm">
-	<a class="navbar-brand font-weight-normal" href="{{ .Site.BaseURL | relLangURL }}/">
-		{{ if and (.Site.Params.hideBrandOnHome | default false) .IsHome }}
-		<i class="{{ .Site.Params.brandIcon }} {{ if .Site.Params.dark }}fa-inverse{{ end }}"></i>
-		{{ else }}
-		{{ .Site.Title }}
-		{{ end }}
+	<a class="navbar-brand" href="{{ .Site.BaseURL }}">
+		<img src="/favicon.png" width="30" height="30" alt="{{ .Site.Title }}" class="d-inline-block align-center">
 	</a>
-
+	
 	<div class="navbar-toggler ml-auto border-0" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<i class="fas fa-bars {{ if .Site.Params.dark }}fa-inverse{{ end }}"></i>
 	</div>
-
+	
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="nav navbar-nav mr-auto">
 			{{ $currentPage := . }}
@@ -26,9 +22,19 @@
 			{{ end }}
 			{{ end }}
 		</ul>
-
+		
 		<ul class="nav navbar-nav navbar-right">
-			{{ partial "language_switcher.html" . }}
+			{{ $currentPage := . }}
+			{{ range .Site.Menus.side }}
+			{{ if not .HasChildren }}
+			{{ $active := or ($currentPage.IsMenuCurrent "side" .) (eq .Identifier $currentPage.Type) }}
+			<li class="nav-item {{ if $active }}active{{ end }}">
+				<a class="nav-link" href="{{ .URL | absLangURL }}">
+					{{ .Pre }}<span>{{ .Name }}</span>{{ .Post }}
+				</a>
+			</li>
+			{{ end }}
+			{{ end }}
 			{{ partial "social.html" . }}
 		</ul>
 	</div>

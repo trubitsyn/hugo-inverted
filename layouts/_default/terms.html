@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $type := .Type }}
+<h2>{{ $type | title }}</h2>
 {{ range $key, $value := .Data.Terms.Alphabetical }}
 {{ $name := .Name }}
 {{ $count := .Count }}
